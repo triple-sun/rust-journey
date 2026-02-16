@@ -44,8 +44,8 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 5. Print the lyrics to "The Twelve Days of Christmas" using loops
 
 ### Checkpoint
-- [ ] You can create a new project with `cargo new`, build with `cargo build`, run with `cargo run`
-- [ ] You understand the difference between `let` and `let mut`
+- [x] You can create a new project with `cargo new`, build with `cargo build`, run with `cargo run`
+- [x] You understand the difference between `let` and `let mut`
 - [ ] You can write functions with parameters and return values
 - [ ] You can use `if/else`, `loop`, `while`, `for` comfortably
 
