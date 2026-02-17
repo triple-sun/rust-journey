@@ -46,8 +46,8 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 ### Checkpoint
 - [x] You can create a new project with `cargo new`, build with `cargo build`, run with `cargo run`
 - [x] You understand the difference between `let` and `let mut`
-- [ ] You can write functions with parameters and return values
-- [ ] You can use `if/else`, `loop`, `while`, `for` comfortably
+- [x] You can write functions with parameters and return values
+- [x] You can use `if/else`, `loop`, `while`, `for` comfortably
 
 ---
 
