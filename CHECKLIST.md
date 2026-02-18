@@ -8,16 +8,16 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 > Rust Book chapters: 1, 2, 3
 
 ### Exercises
-- [ ] Set up Rust environment (`rustc --version`, `cargo --version`)
-- [ ] Complete the guessing game (Ch.2)
+- [v] Set up Rust environment (`rustc --version`, `cargo --version`)
+- [v] Complete the guessing game (Ch.2)
 - [ ] Fahrenheit ↔ Celsius converter
-- [ ] Nth Fibonacci number
+- [v] Nth Fibonacci number
 - [ ] "Twelve Days of Christmas" with loops
 
 ### Checkpoint
-- [ ] Can create, build, and run projects with `cargo`
-- [ ] Understand `let` vs `let mut`
-- [ ] Can write functions with parameters and return values
+- [v] Can create, build, and run projects with `cargo`
+- [v] Understand `let` vs `let mut`
+- [v] Can write functions with parameters and return values
 - [ ] Comfortable with `if/else`, `loop`, `while`, `for`
 
 ---
