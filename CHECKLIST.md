@@ -27,8 +27,8 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 
 ### Exercises
 - [v] Function that takes and returns ownership of a `String`
-- [ ] Function that borrows `&String` and calculates length
-- [ ] Intentionally violate borrowing rules — read compiler errors
+- [v] Function that borrows `&String` and calculates length
+- [v] Intentionally violate borrowing rules — read compiler errors
 - [ ] `first_word(s: &str) -> &str` function
 - [ ] Experiment with `String` vs `&str`
 
