@@ -26,7 +26,7 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 > Rust Book chapter: 4
 
 ### Exercises
-- [ ] Function that takes and returns ownership of a `String`
+- [v] Function that takes and returns ownership of a `String`
 - [ ] Function that borrows `&String` and calculates length
 - [ ] Intentionally violate borrowing rules — read compiler errors
 - [ ] `first_word(s: &str) -> &str` function
