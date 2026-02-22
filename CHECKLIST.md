@@ -12,7 +12,7 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [v] Complete the guessing game (Ch.2)
 - [v] Fahrenheit ↔ Celsius converter
 - [v] Nth Fibonacci number
-- [ ] "Twelve Days of Christmas" with loops
+- [v] "Twelve Days of Christmas" with loops
 
 ### Checkpoint
 - [v] Can create, build, and run projects with `cargo`
@@ -33,7 +33,7 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [v] Experiment with `String` vs `&str`
 
 ### Checkpoint
-- [ ] Can explain the three ownership rules
+- [v] Can explain the three ownership rules
 - [v] Understand move semantics (`String` vs `i32`)
 - [v] Can write functions that borrow without taking ownership
 - [v] Understand `String` vs `&str` difference
@@ -44,15 +44,15 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 > Rust Book chapters: 5, 6, 7
 
 ### Exercises
-- [ ] `Rectangle` struct with `area()`, `perimeter()`, `can_hold()`
-- [ ] `IpAddr` enum with `V4` and `V6` variants
+- [v] `Rectangle` struct with `area()`, `perimeter()`, `can_hold()`
+- [v] `IpAddr` enum with `V4` and `V6` variants
 - [ ] Function on `Option<i32>` that doubles value or returns `None`
 - [ ] Mini library with `pub` module structure
 - [ ] Practice `use` to bring items into scope
 
 ### Checkpoint
-- [ ] Can define structs and implement methods
-- [ ] Can create enums with data-carrying variants
+- [v] Can define structs and implement methods
+- [v] Can create enums with data-carrying variants
 - [ ] Can use `match`, `if let`, `let else`
 - [ ] Understand `pub`, `mod`, `use`
 
