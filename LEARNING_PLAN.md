@@ -81,10 +81,10 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 5. Experiment with `String` vs `&str` — when do you use which?
 
 ### Checkpoint
-- [ ] You can explain the three ownership rules from memory
+- [v] You can explain the three ownership rules from memory
 - [v] You understand why `let s2 = s1;` invalidates `s1` for `String` but not for `i32`
-- [ ] You can write functions that borrow data without taking ownership
-- [ ] You understand the difference between `String` and `&str`
+- [v] You can write functions that borrow data without taking ownership
+- [v] You understand the difference between `String` and `&str`
 
 ---
 

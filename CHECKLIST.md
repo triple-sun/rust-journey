@@ -29,14 +29,14 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [v] Function that takes and returns ownership of a `String`
 - [v] Function that borrows `&String` and calculates length
 - [v] Intentionally violate borrowing rules — read compiler errors
-- [ ] `first_word(s: &str) -> &str` function
-- [ ] Experiment with `String` vs `&str`
+- [v] `first_word(s: &str) -> &str` function
+- [v] Experiment with `String` vs `&str`
 
 ### Checkpoint
 - [ ] Can explain the three ownership rules
-- [ ] Understand move semantics (`String` vs `i32`)
-- [ ] Can write functions that borrow without taking ownership
-- [ ] Understand `String` vs `&str` difference
+- [v] Understand move semantics (`String` vs `i32`)
+- [v] Can write functions that borrow without taking ownership
+- [v] Understand `String` vs `&str` difference
 
 ---
 
