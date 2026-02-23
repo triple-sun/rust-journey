@@ -1,7 +1,9 @@
-pub fn test_fn() {
-    println!("Hello from mini library!")
-}
+pub mod test_lib {
+    pub fn test_fn() {
+        println!("Hello from mini library!")
+    }
 
-pub fn test_fn_2(){
-    println!("And hello once more!")
+    pub fn test_fn_2() {
+        println!("And hello once more!")
+    }
 }

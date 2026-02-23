@@ -47,14 +47,14 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [v] `Rectangle` struct with `area()`, `perimeter()`, `can_hold()`
 - [v] `IpAddr` enum with `V4` and `V6` variants
 - [v] Function on `Option<i32>` that doubles value or returns `None`
-- [ ] Mini library with `pub` module structure
-- [ ] Practice `use` to bring items into scope
+- [v] Mini library with `pub` module structure
+- [v] Practice `use` to bring items into scope
 
 ### Checkpoint
 - [v] Can define structs and implement methods
 - [v] Can create enums with data-carrying variants
-- [ ] Can use `match`, `if let`, `let else`
-- [ ] Understand `pub`, `mod`, `use`
+- [v] Can use `match`, `if let`, `let else`
+- [v] Understand `pub`, `mod`, `use`
 
 ---
 
