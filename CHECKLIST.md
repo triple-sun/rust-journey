@@ -46,7 +46,7 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 ### Exercises
 - [v] `Rectangle` struct with `area()`, `perimeter()`, `can_hold()`
 - [v] `IpAddr` enum with `V4` and `V6` variants
-- [ ] Function on `Option<i32>` that doubles value or returns `None`
+- [v] Function on `Option<i32>` that doubles value or returns `None`
 - [ ] Mini library with `pub` module structure
 - [ ] Practice `use` to bring items into scope
 
