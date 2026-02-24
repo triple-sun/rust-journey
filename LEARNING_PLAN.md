@@ -118,10 +118,10 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 5. Practice using `use` to bring module items into scope
 
 ### Checkpoint
-- [ ] You can define structs and implement methods on them
-- [ ] You can create enums with data-carrying variants
-- [ ] You can use `match`, `if let`, and `let else` for pattern matching
-- [ ] You understand `pub`, `mod`, and `use` for organizing code
+- [v] You can define structs and implement methods on them
+- [v] You can create enums with data-carrying variants
+- [v] You can use `match`, `if let`, and `let else` for pattern matching
+- [v] You understand `pub`, `mod`, and `use` for organizing code
 
 ---
 
