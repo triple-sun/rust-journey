@@ -1,4 +1,4 @@
-use mini_lib::test_lib::{test_fn, test_fn_2};
+use mini_lib::test::{test_fn, test_fn_2};
 
 fn main() {
     test_fn();
