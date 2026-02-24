@@ -43,6 +43,10 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 4. Generate the nth Fibonacci number
 5. Print the lyrics to "The Twelve Days of Christmas" using loops
 
+### Continuous Project: Mini-Redis (Milestone 1)
+- Create a REPL loop that reads standard input using `std::io::stdin().read_line()`.
+- Identify basic commands like `SET key value` and `GET key` and echo them back to the user.
+
 ### Checkpoint
 - [x] You can create a new project with `cargo new`, build with `cargo build`, run with `cargo run`
 - [x] You understand the difference between `let` and `let mut`
@@ -80,6 +84,10 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 4. Write a function `first_word(s: &str) -> &str` that returns the first word of a string
 5. Experiment with `String` vs `&str` — when do you use which?
 
+### Continuous Project: Mini-Redis (Milestone 2)
+- Parse the incoming command strings from the REPL safely.
+- Use string slices (`&str`) to extract the command, key, and value without allocating new `String`s unnecessarily.
+
 ### Checkpoint
 - [v] You can explain the three ownership rules from memory
 - [v] You understand why `let s2 = s1;` invalidates `s1` for `String` but not for `i32`
@@ -116,6 +124,10 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 3. Write a function that takes `Option<i32>` and doubles the value if present, returns `None` otherwise
 4. Create a mini library with a `pub` module structure: `lib/network/server.rs`, `lib/network/client.rs`
 5. Practice using `use` to bring module items into scope
+
+### Continuous Project: Mini-Redis (Milestone 3)
+- Define a `Command` enum with variants like `Set(String, String)` and `Get(String)`.
+- Create a `db` module with a function that takes a `&str` and returns an `Option<Command>`.
 
 ### Checkpoint
 - [v] You can define structs and implement methods on them
@@ -157,6 +169,10 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 5. Define a `Summary` trait with a `summarize()` method. Implement it for `NewsArticle` and `Tweet` structs
 6. Write a function with lifetime annotations that returns the longer of two string slices
 
+### Continuous Project: Mini-Redis (Milestone 4)
+- Implement the actual storage using a `HashMap<String, String>`.
+- Create a custom `Result` type for operations and return errors like `KeyNotFound` instead of just `None`.
+
 ### Checkpoint
 - [ ] You can use `Vec`, `String`, `HashMap` fluently
 - [ ] You use `Result<T, E>` and `?` for error handling
@@ -197,6 +213,10 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 3. Refactor `minigrep` to use iterators instead of index-based loops
 4. Write a closure that captures a `Vec<String>` and filters it by a prefix
 5. Implement a function using iterators that takes a list of numbers and returns only primes
+
+### Continuous Project: Mini-Redis (Milestone 5)
+- Implement a Write-Ahead Log (WAL) that appends every `SET` command to a file so data survives restarts.
+- Write robust unit tests for your command parser and data store logic.
 
 ### Checkpoint
 - [ ] You can write and run tests with `cargo test`
@@ -241,6 +261,10 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 5. Write unsafe code that dereferences a raw pointer — then make it safe again
 6. Set up a cargo workspace with two crates: a library crate and a binary crate that depends on it
 
+### Continuous Project: Mini-Redis (Milestone 6)
+- Make the database multi-threaded using `Arc<RwLock<HashMap<String, String>>>`.
+- Add a background thread that periodically compacts the WAL (removes old `SET`s for overwritten keys).
+
 ### Checkpoint
 - [ ] You can choose between `Box`, `Rc`, `Arc` based on use case
 - [ ] You can spawn threads and use `Mutex`/`Arc` for shared state
@@ -281,6 +305,10 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 3. Practice pattern matching: destructure nested structs, use `@` bindings and match guards
 4. Implement `Add` trait to allow adding two custom `Point` structs with `+`
 5. Write a simple declarative macro `macro_rules! my_vec` that mimics a simplified `vec![]`
+
+### Continuous Project: Mini-Redis (Milestone 7)
+- Implement custom traits for your storage backend to easily swap between an in-memory store and a disk-backed store using dynamic dispatch.
+- Use advanced pattern matching to handle complex commands or options (e.g., `SET key value EX seconds`).
 
 ### Checkpoint
 - [ ] You can use trait objects for dynamic dispatch
@@ -328,6 +356,10 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 3. Use `tokio::select!` to race two async operations (e.g., a timer vs. reading stdin)
 4. Serialize and deserialize a struct to/from JSON using `serde` and `serde_json`
 5. Build a CLI tool with `clap` that accepts a URL argument and fetches it asynchronously
+
+### Continuous Project: Mini-Redis (Milestone 8)
+- Replace the standard input REPL with an async `tokio` TCP server (`tokio::net::TcpListener`).
+- Bind to a port and accept connections, handling commands from actual TCP clients concurrently.
 
 ### Checkpoint
 - [ ] You can write async functions and use `tokio` as the runtime

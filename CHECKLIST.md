@@ -13,6 +13,7 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [v] Fahrenheit ↔ Celsius converter
 - [v] Nth Fibonacci number
 - [v] "Twelve Days of Christmas" with loops
+- [ ] Mini-Redis M1: REPL loop and basic commands
 
 ### Checkpoint
 - [v] Can create, build, and run projects with `cargo`
@@ -31,6 +32,7 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [v] Intentionally violate borrowing rules — read compiler errors
 - [v] `first_word(s: &str) -> &str` function
 - [v] Experiment with `String` vs `&str`
+- [ ] Mini-Redis M2: Parse commands safely with string slices
 
 ### Checkpoint
 - [v] Can explain the three ownership rules
@@ -49,6 +51,7 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [v] Function on `Option<i32>` that doubles value or returns `None`
 - [v] Mini library with `pub` module structure
 - [v] Practice `use` to bring items into scope
+- [ ] Mini-Redis M3: `Command` enum and `db` module
 
 ### Checkpoint
 - [v] Can define structs and implement methods
@@ -62,12 +65,13 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 > Rust Book chapters: 8, 9, 10
 
 ### Exercises
-- [ ] Mean, median, mode from a list of integers
+- [v] Mean, median, mode from a list of integers
 - [ ] Pig Latin converter
 - [ ] Employee department tracker CLI
 - [ ] Generic `largest<T: PartialOrd>` function
 - [ ] `Summary` trait with `NewsArticle` and `Tweet` implementations
 - [ ] Lifetime annotations: return longer of two `&str`
+- [ ] Mini-Redis M4: Storage with `HashMap` and custom `Result` type
 
 ### Checkpoint
 - [ ] Fluent with `Vec`, `String`, `HashMap`
@@ -86,6 +90,7 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [ ] Refactor `minigrep` to use iterators
 - [ ] Closure that filters `Vec<String>` by prefix
 - [ ] Iterator-based function returning only primes
+- [ ] Mini-Redis M5: Write-Ahead Log (WAL) and unit tests
 
 ### Checkpoint
 - [ ] Can write and run tests with `cargo test`
@@ -105,6 +110,7 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [ ] Producer-consumer with `mpsc::channel`
 - [ ] Unsafe raw pointer dereference — then make it safe
 - [ ] Cargo workspace: library + binary crate
+- [ ] Mini-Redis M6: Mutli-threaded DB with `Arc<RwLock>` and WAL compactor
 
 ### Checkpoint
 - [ ] Can choose between `Box`, `Rc`, `Arc`
@@ -123,6 +129,7 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [ ] Complex pattern matching with `@` bindings and guards
 - [ ] `Add` trait for custom `Point` struct
 - [ ] `macro_rules! my_vec` declarative macro
+- [ ] Mini-Redis M7: Custom storage traits and advanced pattern matching
 
 ### Checkpoint
 - [ ] Can use trait objects for dynamic dispatch
@@ -141,6 +148,7 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [ ] `tokio::select!` racing two async operations
 - [ ] Serialize/deserialize with `serde_json`
 - [ ] CLI tool with `clap` + async URL fetch
+- [ ] Mini-Redis M8: Async `tokio` TCP server
 
 ### Checkpoint
 - [ ] Can write async functions with `tokio`
