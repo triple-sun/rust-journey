@@ -41,11 +41,11 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [v] Experiment with `String` vs `&str`
 
 ### Continuous Project: Mini-Redis (Milestone 2)
-- [ ] Write a parser function that takes a string slice (`&str`).
-- [ ] Use the `.split_whitespace()` iterator to extract parts of the string without allocating new memory.
-- [ ] Identify the first word as the command (e.g., `SET`, `GET`) and subsequent words as arguments (key, value).
-- [ ] Handle malformed input (like `SET key_without_value`) gracefully without panicking.
-- [ ] Print the sliced out components: e.g., `println!("CMD: {}, KEY: {}", cmd, key)`.
+- [v] Write a parser function that takes a string slice (`&str`).
+- [v] Use the `.split_whitespace()` iterator to extract parts of the string without allocating new memory.
+- [v] Identify the first word as the command (e.g., `SET`, `GET`) and subsequent words as arguments (key, value).
+- [v] Handle malformed input (like `SET key_without_value`) gracefully without panicking.
+- [v] Print the sliced out components: e.g., `println!("CMD: {}, KEY: {}", cmd, key)`.
 
 ### Checkpoint
 - [v] Can explain the three ownership rules
