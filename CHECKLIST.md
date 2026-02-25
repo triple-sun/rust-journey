@@ -13,7 +13,14 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [v] Fahrenheit ↔ Celsius converter
 - [v] Nth Fibonacci number
 - [v] "Twelve Days of Christmas" with loops
-- [ ] Mini-Redis M1: REPL loop and basic commands
+
+### Continuous Project: Mini-Redis (Milestone 1)
+- [v] Initialize a new project: `cargo new mini-redis`
+- [v] Create a `loop { ... }` in `main.rs` that prompts the user for input.
+- [v] Read standard input using `std::io::stdin().read_line(&mut buf)`.
+- [v] Use `.trim()` to remove trailing newlines and `.to_uppercase()` to normalize commands.
+- [v] Echo the input back to the console to confirm it works.
+- [v] Add a quit condition: break the loop if the text is `"QUIT"` or `"EXIT"`.
 
 ### Checkpoint
 - [v] Can create, build, and run projects with `cargo`
@@ -32,7 +39,13 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [v] Intentionally violate borrowing rules — read compiler errors
 - [v] `first_word(s: &str) -> &str` function
 - [v] Experiment with `String` vs `&str`
-- [ ] Mini-Redis M2: Parse commands safely with string slices
+
+### Continuous Project: Mini-Redis (Milestone 2)
+- [ ] Write a parser function that takes a string slice (`&str`).
+- [ ] Use the `.split_whitespace()` iterator to extract parts of the string without allocating new memory.
+- [ ] Identify the first word as the command (e.g., `SET`, `GET`) and subsequent words as arguments (key, value).
+- [ ] Handle malformed input (like `SET key_without_value`) gracefully without panicking.
+- [ ] Print the sliced out components: e.g., `println!("CMD: {}, KEY: {}", cmd, key)`.
 
 ### Checkpoint
 - [v] Can explain the three ownership rules
@@ -51,7 +64,12 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [v] Function on `Option<i32>` that doubles value or returns `None`
 - [v] Mini library with `pub` module structure
 - [v] Practice `use` to bring items into scope
-- [ ] Mini-Redis M3: `Command` enum and `db` module
+
+### Continuous Project: Mini-Redis (Milestone 3)
+- [ ] Create a new file `src/command.rs`.
+- [ ] Define an enum: `pub enum Command { Set(String, String), Get(String), Unknown }`.
+- [ ] Move your parsing logic into a function like `pub fn parse(input: &str) -> Command`.
+- [ ] In `main.rs`, use a `match` statement on the returned `Command` to decide whether to echo back, get data, or print an error message.
 
 ### Checkpoint
 - [v] Can define structs and implement methods
@@ -71,7 +89,12 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [ ] Generic `largest<T: PartialOrd>` function
 - [ ] `Summary` trait with `NewsArticle` and `Tweet` implementations
 - [ ] Lifetime annotations: return longer of two `&str`
-- [ ] Mini-Redis M4: Storage with `HashMap` and custom `Result` type
+
+### Continuous Project: Mini-Redis (Milestone 4)
+- [ ] Instantiate `let mut store: HashMap<String, String> = HashMap::new();` before your REPL loop.
+- [ ] Implement the execution of `Command::Set` (inserting into the `HashMap`) and `Command::Get` (retrieving).
+- [ ] Mimic Redis behavior: if `GET` succeeds, print the value. If it fails, print `(nil)`.
+- [ ] Create a custom error enum if needed (e.g., `enum DbError { KeyNotFound, InvalidCommand }`) and have your parser and executor return `Result<T, DbError>`.
 
 ### Checkpoint
 - [ ] Fluent with `Vec`, `String`, `HashMap`
@@ -90,7 +113,11 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [ ] Refactor `minigrep` to use iterators
 - [ ] Closure that filters `Vec<String>` by prefix
 - [ ] Iterator-based function returning only primes
-- [ ] Mini-Redis M5: Write-Ahead Log (WAL) and unit tests
+
+### Continuous Project: Mini-Redis (Milestone 5)
+- [ ] In your `Set` command execution, after updating the `HashMap`, append the command to a `db.log` file using `std::fs::OpenOptions` in `append` mode.
+- [ ] Modify your startup sequence: before entering the REPL loop, read `db.log` line-by-line and populate your `HashMap` to recover previous state.
+- [ ] Write unit tests (`#[test]`) for your command parser (e.g., making sure `"SET name alice"` turns into `Command::Set("name", "alice")`) and for the hashmap operations.
 
 ### Checkpoint
 - [ ] Can write and run tests with `cargo test`
@@ -110,7 +137,11 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [ ] Producer-consumer with `mpsc::channel`
 - [ ] Unsafe raw pointer dereference — then make it safe
 - [ ] Cargo workspace: library + binary crate
-- [ ] Mini-Redis M6: Mutli-threaded DB with `Arc<RwLock>` and WAL compactor
+
+### Continuous Project: Mini-Redis (Milestone 6)
+- [ ] Prepare your DB for concurrency by wrapping it in `Arc<RwLock<HashMap<String, String>>>`.
+- [ ] Refactor your code so that you `write()` lock the data structure for `SET` and `read()` lock it for `GET`.
+- [ ] Add a background process: use `std::thread::spawn` to launch a thread that wakes up every N seconds. It should read lock the database, write out all current key-value pairs to a new clean log file, and overwrite the old `db.log` (compaction).
 
 ### Checkpoint
 - [ ] Can choose between `Box`, `Rc`, `Arc`
@@ -129,7 +160,12 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [ ] Complex pattern matching with `@` bindings and guards
 - [ ] `Add` trait for custom `Point` struct
 - [ ] `macro_rules! my_vec` declarative macro
-- [ ] Mini-Redis M7: Custom storage traits and advanced pattern matching
+
+### Continuous Project: Mini-Redis (Milestone 7)
+- [ ] Define a `trait Storage { fn set(&mut self, k: &str, v: &str); fn get(&self, k: &str) -> Option<String>; }`.
+- [ ] Implement the `Storage` trait for your in-memory + WAL database.
+- [ ] Create a `--mode memory-only` CLI flag. When passed, instantiate a purely in-memory map without file logging. Use trait objects (`Box<dyn Storage>`) to swap between the two implementations seamlessly at runtime.
+- [ ] Use advanced pattern matching with match guards to handle special commands like `SET foo bar EX 60` (expiration in 60 seconds).
 
 ### Checkpoint
 - [ ] Can use trait objects for dynamic dispatch
@@ -148,7 +184,13 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [ ] `tokio::select!` racing two async operations
 - [ ] Serialize/deserialize with `serde_json`
 - [ ] CLI tool with `clap` + async URL fetch
-- [ ] Mini-Redis M8: Async `tokio` TCP server
+
+### Continuous Project: Mini-Redis (Milestone 8)
+- [ ] Add the `tokio` crate to your dependencies. Change your main function to `#[tokio::main] async fn main()`.
+- [ ] Replace your standard input REPL loop with `tokio::net::TcpListener::bind("127.0.0.1:6379").await;`.
+- [ ] Use `listener.accept().await` in a loop. For every connected client socket, use `tokio::spawn` to handle its commands concurrently.
+- [ ] Replace your `std::sync::RwLock` with `tokio::sync::RwLock` so async tasks don't block OS threads while waiting for a lock.
+- [ ] Test it by connecting via a tool like `netcat` (`nc 127.0.0.1 6379`) or a standard Redis client!
 
 ### Checkpoint
 - [ ] Can write async functions with `tokio`

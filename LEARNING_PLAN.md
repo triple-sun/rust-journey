@@ -44,8 +44,13 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 5. Print the lyrics to "The Twelve Days of Christmas" using loops
 
 ### Continuous Project: Mini-Redis (Milestone 1)
-- Create a REPL loop that reads standard input using `std::io::stdin().read_line()`.
-- Identify basic commands like `SET key value` and `GET key` and echo them back to the user.
+**Goal: A basic Read-Eval-Print Loop (REPL).**
+- Initialize a new project: `cargo new mini-redis`
+- Create a `loop { ... }` in `main.rs` that prompts the user for input.
+- Read standard input using `std::io::stdin().read_line(&mut buf)`.
+- Use `.trim()` to remove trailing newlines and `.to_uppercase()` to normalize commands.
+- Echo the input back to the console to confirm it works.
+- Add a quit condition: break the loop if the text is `"QUIT"` or `"EXIT"`.
 
 ### Checkpoint
 - [x] You can create a new project with `cargo new`, build with `cargo build`, run with `cargo run`
@@ -85,8 +90,12 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 5. Experiment with `String` vs `&str` — when do you use which?
 
 ### Continuous Project: Mini-Redis (Milestone 2)
-- Parse the incoming command strings from the REPL safely.
-- Use string slices (`&str`) to extract the command, key, and value without allocating new `String`s unnecessarily.
+**Goal: Parse text safely using references without cloning data.**
+- Write a parser function that takes a string slice (`&str`).
+- Use the `.split_whitespace()` iterator to extract parts of the string without allocating new memory.
+- Identify the first word as the command (e.g., `SET`, `GET`) and subsequent words as arguments (key, value).
+- Handle malformed input (like `SET key_without_value`) gracefully without panicking.
+- Print the sliced out components: e.g., `println!("CMD: {}, KEY: {}", cmd, key)`.
 
 ### Checkpoint
 - [v] You can explain the three ownership rules from memory
@@ -126,8 +135,11 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 5. Practice using `use` to bring module items into scope
 
 ### Continuous Project: Mini-Redis (Milestone 3)
-- Define a `Command` enum with variants like `Set(String, String)` and `Get(String)`.
-- Create a `db` module with a function that takes a `&str` and returns an `Option<Command>`.
+**Goal: Model commands via enums and separate code into modules.**
+- Create a new file `src/command.rs`.
+- Define an enum: `pub enum Command { Set(String, String), Get(String), Unknown }`.
+- Move your parsing logic into a function like `pub fn parse(input: &str) -> Command`.
+- In `main.rs`, use a `match` statement on the returned `Command` to decide whether to echo back, get data, or print an error message.
 
 ### Checkpoint
 - [v] You can define structs and implement methods on them
@@ -170,8 +182,11 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 6. Write a function with lifetime annotations that returns the longer of two string slices
 
 ### Continuous Project: Mini-Redis (Milestone 4)
-- Implement the actual storage using a `HashMap<String, String>`.
-- Create a custom `Result` type for operations and return errors like `KeyNotFound` instead of just `None`.
+**Goal: Actually store data in memory and handle errors.**
+- Instantiate `let mut store: HashMap<String, String> = HashMap::new();` before your REPL loop.
+- Implement the execution of `Command::Set` (inserting into the `HashMap`) and `Command::Get` (retrieving).
+- Mimic Redis behavior: if `GET` succeeds, print the value. If it fails, print `(nil)`.
+- Create a custom error enum if needed (e.g., `enum DbError { KeyNotFound, InvalidCommand }`) and have your parser and executor return `Result<T, DbError>`.
 
 ### Checkpoint
 - [ ] You can use `Vec`, `String`, `HashMap` fluently
@@ -215,8 +230,10 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 5. Implement a function using iterators that takes a list of numbers and returns only primes
 
 ### Continuous Project: Mini-Redis (Milestone 5)
-- Implement a Write-Ahead Log (WAL) that appends every `SET` command to a file so data survives restarts.
-- Write robust unit tests for your command parser and data store logic.
+**Goal: Persistence via a Write-Ahead Log (WAL) and ensuring correctness with tests.**
+- In your `Set` command execution, after updating the `HashMap`, append the command to a `db.log` file using `std::fs::OpenOptions` in `append` mode.
+- Modify your startup sequence: before entering the REPL loop, read `db.log` line-by-line and populate your `HashMap` to recover previous state.
+- Write unit tests (`#[test]`) for your command parser (e.g., making sure `"SET name alice"` turns into `Command::Set("name", "alice")`) and for the hashmap operations.
 
 ### Checkpoint
 - [ ] You can write and run tests with `cargo test`
@@ -262,8 +279,10 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 6. Set up a cargo workspace with two crates: a library crate and a binary crate that depends on it
 
 ### Continuous Project: Mini-Redis (Milestone 6)
-- Make the database multi-threaded using `Arc<RwLock<HashMap<String, String>>>`.
-- Add a background thread that periodically compacts the WAL (removes old `SET`s for overwritten keys).
+**Goal: Prepare for a networked server by making the storage thread-safe.**
+- Prepare your DB for concurrency by wrapping it in `Arc<RwLock<HashMap<String, String>>>`.
+- Refactor your code so that you `write()` lock the data structure for `SET` and `read()` lock it for `GET`.
+- Add a background process: use `std::thread::spawn` to launch a thread that wakes up every N seconds. It should read lock the database, write out all current key-value pairs to a new clean log file, and overwrite the old `db.log` (compaction).
 
 ### Checkpoint
 - [ ] You can choose between `Box`, `Rc`, `Arc` based on use case
@@ -307,8 +326,11 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 5. Write a simple declarative macro `macro_rules! my_vec` that mimics a simplified `vec![]`
 
 ### Continuous Project: Mini-Redis (Milestone 7)
-- Implement custom traits for your storage backend to easily swap between an in-memory store and a disk-backed store using dynamic dispatch.
-- Use advanced pattern matching to handle complex commands or options (e.g., `SET key value EX seconds`).
+**Goal: Advanced design patterns using traits.**
+- Define a `trait Storage { fn set(&mut self, k: &str, v: &str); fn get(&self, k: &str) -> Option<String>; }`.
+- Implement the `Storage` trait for your in-memory + WAL database.
+- Create a `--mode memory-only` CLI flag. When passed, instantiate a purely in-memory map without file logging. Use trait objects (`Box<dyn Storage>`) to swap between the two implementations seamlessly at runtime.
+- Use advanced pattern matching with match guards to handle special commands like `SET foo bar EX 60` (expiration in 60 seconds).
 
 ### Checkpoint
 - [ ] You can use trait objects for dynamic dispatch
@@ -358,8 +380,12 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 5. Build a CLI tool with `clap` that accepts a URL argument and fetches it asynchronously
 
 ### Continuous Project: Mini-Redis (Milestone 8)
-- Replace the standard input REPL with an async `tokio` TCP server (`tokio::net::TcpListener`).
-- Bind to a port and accept connections, handling commands from actual TCP clients concurrently.
+**Goal: A fully functional asynchronous TCP server.**
+- Add the `tokio` crate to your dependencies. Change your main function to `#[tokio::main] async fn main()`.
+- Replace your standard input REPL loop with `tokio::net::TcpListener::bind("127.0.0.1:6379").await;`.
+- Use `listener.accept().await` in a loop. For every connected client socket, use `tokio::spawn` to handle its commands concurrently.
+- Replace your `std::sync::RwLock` with `tokio::sync::RwLock` so async tasks don't block OS threads while waiting for a lock.
+- Test it by connecting via a tool like `netcat` (`nc 127.0.0.1 6379`) or a standard Redis client!
 
 ### Checkpoint
 - [ ] You can write async functions and use `tokio` as the runtime
