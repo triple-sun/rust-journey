@@ -100,7 +100,7 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [v] Fluent with `Vec`, `String`, `HashMap`
 - [v] Use `Result<T, E>` and `?` for error handling
 - [v] Can write generics with trait bounds
-- [ ] Understand lifetime annotations
+- [v] Understand lifetime annotations
 
 ---
 
