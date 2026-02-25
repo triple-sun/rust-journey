@@ -176,10 +176,9 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 ### Exercises
 1. Given a list of integers: compute mean, median, and mode using `Vec` and `HashMap`
 2. Convert a string to Pig Latin (first consonant goes to end + "ay", vowels get "hay")
-3. Build an employee department tracker: CLI that accepts commands like `"Add Sally to Engineering"` and can list by department
-4. Write a generic function `largest<T: PartialOrd>(list: &[T]) -> &T`
-5. Define a `Summary` trait with a `summarize()` method. Implement it for `NewsArticle` and `Tweet` structs
-6. Write a function with lifetime annotations that returns the longer of two string slices
+3. Write a generic function `largest<T: PartialOrd>(list: &[T]) -> &T`
+4. Define a `Summary` trait with a `summarize()` method. Implement it for `NewsArticle` and `Tweet` structs
+5. Write a function with lifetime annotations that returns the longer of two string slices
 
 ### Continuous Project: Mini-Redis (Milestone 4)
 **Goal: Actually store data in memory and handle errors.**
@@ -189,10 +188,10 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 - Create a custom error enum if needed (e.g., `enum DbError { KeyNotFound, InvalidCommand }`) and have your parser and executor return `Result<T, DbError>`.
 
 ### Checkpoint
-- [ ] You can use `Vec`, `String`, `HashMap` fluently
-- [ ] You use `Result<T, E>` and `?` for error handling
-- [ ] You can write generic functions and structs with trait bounds
-- [ ] You understand lifetime annotations and when they're needed
+- [v] You can use `Vec`, `String`, `HashMap` fluently
+- [v] You use `Result<T, E>` and `?` for error handling
+- [v] You can write generic functions and structs with trait bounds
+- [v] You understand lifetime annotations and when they're needed
 
 ---
 
