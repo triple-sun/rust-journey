@@ -66,10 +66,10 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [v] Practice `use` to bring items into scope
 
 ### Continuous Project: Mini-Redis (Milestone 3)
-- [ ] Create a new file `src/command.rs`.
-- [ ] Define an enum: `pub enum Command { Set(String, String), Get(String), Unknown }`.
-- [ ] Move your parsing logic into a function like `pub fn parse(input: &str) -> Command`.
-- [ ] In `main.rs`, use a `match` statement on the returned `Command` to decide whether to echo back, get data, or print an error message.
+- [v] Create a new file `src/command.rs`.
+- [v] Define an enum: `pub enum Command { Set(String, String), Get(String), Unknown }`.
+- [v] Move your parsing logic into a function like `pub fn parse(input: &str) -> Command`.
+- [v] In `main.rs`, use a `match` statement on the returned `Command` to decide whether to echo back, get data, or print an error message.
 
 ### Checkpoint
 - [v] Can define structs and implement methods
@@ -91,15 +91,15 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [ ] Lifetime annotations: return longer of two `&str`
 
 ### Continuous Project: Mini-Redis (Milestone 4)
-- [ ] Instantiate `let mut store: HashMap<String, String> = HashMap::new();` before your REPL loop.
-- [ ] Implement the execution of `Command::Set` (inserting into the `HashMap`) and `Command::Get` (retrieving).
-- [ ] Mimic Redis behavior: if `GET` succeeds, print the value. If it fails, print `(nil)`.
-- [ ] Create a custom error enum if needed (e.g., `enum DbError { KeyNotFound, InvalidCommand }`) and have your parser and executor return `Result<T, DbError>`.
+- [v] Instantiate `let mut store: HashMap<String, String> = HashMap::new();` before your REPL loop.
+- [v] Implement the execution of `Command::Set` (inserting into the `HashMap`) and `Command::Get` (retrieving).
+- [v] Mimic Redis behavior: if `GET` succeeds, print the value. If it fails, print `(nil)`.
+- [v] Create a custom error enum if needed (e.g., `enum DbError { KeyNotFound, InvalidCommand }`) and have your parser and executor return `Result<T, DbError>`.
 
 ### Checkpoint
-- [ ] Fluent with `Vec`, `String`, `HashMap`
-- [ ] Use `Result<T, E>` and `?` for error handling
-- [ ] Can write generics with trait bounds
+- [v] Fluent with `Vec`, `String`, `HashMap`
+- [v] Use `Result<T, E>` and `?` for error handling
+- [v] Can write generics with trait bounds
 - [ ] Understand lifetime annotations
 
 ---
