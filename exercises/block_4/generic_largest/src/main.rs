@@ -1,5 +1,3 @@
-use std::fmt::{Display};
-
 use rand::RngExt;
 
 #[derive(Eq, PartialEq, Debug)]
@@ -9,24 +7,24 @@ struct ComparableObject {
 
 impl PartialOrd for ComparableObject {
     fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-        self.value.partial_cmp(&other.value)
+        Some(self.cmp(other))
     }
 }
 
 impl Ord for ComparableObject {
     fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-       if self.value > other.value {
-        return std::cmp::Ordering::Greater
-       } else if self.value < other.value {
-        return std::cmp::Ordering::Less
-       } else {
-        return std::cmp::Ordering::Equal
-       }
+        if self.value > other.value {
+            std::cmp::Ordering::Greater
+        } else if self.value < other.value {
+            std::cmp::Ordering::Less
+        } else {
+            std::cmp::Ordering::Equal
+        }
     }
 }
 
-fn largest<T: PartialOrd + std::cmp::Ord>(elements: &Vec<T>) -> Option<&T> {
-    return elements.iter().max();
+fn largest<T: PartialOrd + std::cmp::Ord>(elements: &[T]) -> Option<&T> {
+    elements.iter().max()
 }
 
 fn main() {
@@ -36,9 +34,9 @@ fn main() {
         })
         .collect();
 
-    println!("Test vector is: {:#?}", test_vec);
+    println!("Test obj vector is: {:#?}", test_vec);
 
-    let largest = largest(&test_vec);
+    let largest_obj = largest(&test_vec);
 
-    println!("Largest is: {:#?}", largest.unwrap())
+    println!("Largest obj is: {:#?}", largest_obj.unwrap());
 }
