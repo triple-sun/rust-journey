@@ -85,7 +85,7 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 ### Exercises
 - [v] Mean, median, mode from a list of integers
 - [v] Pig Latin converter
-- [ ] Generic `largest<T: PartialOrd>` function
+- [v] Generic `largest<T: PartialOrd>` function
 - [ ] `Summary` trait with `NewsArticle` and `Tweet` implementations
 - [ ] Lifetime annotations: return longer of two `&str`
 
