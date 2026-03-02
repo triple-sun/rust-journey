@@ -17,12 +17,15 @@ fn main() {
     }
 }
 
-fn run(config: &Config)-> Result<(), Box<dyn Error>> {
-    let contents =
-        fs::read_to_string(config.filepath)?;
+fn run(config: &Config) -> Result<(), Box<dyn Error>> {
+    let contents = fs::read_to_string(config.filepath)?;
 
-    for line in search(config.query, &contents) {
-       println!("{line}")
+    for (n, line) in search(config, &contents) {
+        if config.flags.add_line_numbers {
+            println!("{n}. {line}")
+        } else {
+            println!("{line}")
+        }
     }
 
     Ok(())
