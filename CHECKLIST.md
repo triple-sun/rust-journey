@@ -107,8 +107,8 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 > Rust Book chapters: 11, 12, 13
 
 ### Exercises
-- [ ] Unit and integration tests for `Rectangle`
-- [ ] Build `minigrep` (Ch.12)
+- [v] Unit and integration tests for `Rectangle`
+- [v] Build `minigrep` (Ch.12)
 - [ ] Refactor `minigrep` to use iterators
 - [ ] Closure that filters `Vec<String>` by prefix
 - [ ] Iterator-based function returning only primes
@@ -119,7 +119,7 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 - [ ] Write unit tests (`#[test]`) for your command parser (e.g., making sure `"SET name alice"` turns into `Command::Set("name", "alice")`) and for the hashmap operations.
 
 ### Checkpoint
-- [ ] Can write and run tests with `cargo test`
+- [v] Can write and run tests with `cargo test`
 - [ ] Completed `minigrep`
 - [ ] Can write closures and use iterator methods
 - [ ] Understand lazy evaluation and iterator chains
