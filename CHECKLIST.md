@@ -109,20 +109,20 @@ Progress tracker for [LEARNING_PLAN.md](./LEARNING_PLAN.md).
 ### Exercises
 - [v] Unit and integration tests for `Rectangle`
 - [v] Build `minigrep` (Ch.12)
-- [ ] Refactor `minigrep` to use iterators
-- [ ] Closure that filters `Vec<String>` by prefix
+- [v] Refactor `minigrep` to use iterators
+- [v] Closure that filters `Vec<String>` by prefix
 - [ ] Iterator-based function returning only primes
 
 ### Continuous Project: Mini-Redis (Milestone 5)
-- [ ] In your `Set` command execution, after updating the `HashMap`, append the command to a `db.log` file using `std::fs::OpenOptions` in `append` mode.
-- [ ] Modify your startup sequence: before entering the REPL loop, read `db.log` line-by-line and populate your `HashMap` to recover previous state.
-- [ ] Write unit tests (`#[test]`) for your command parser (e.g., making sure `"SET name alice"` turns into `Command::Set("name", "alice")`) and for the hashmap operations.
+- [v] In your `Set` command execution, after updating the `HashMap`, append the command to a `db.log` file using `std::fs::OpenOptions` in `append` mode.
+- [v] Modify your startup sequence: before entering the REPL loop, read `db.log` line-by-line and populate your `HashMap` to recover previous state.
+- [v] Write unit tests (`#[test]`) for your command parser (e.g., making sure `"SET name alice"` turns into `Command::Set("name", "alice")`) and for the hashmap operations.
 
 ### Checkpoint
 - [v] Can write and run tests with `cargo test`
-- [ ] Completed `minigrep`
-- [ ] Can write closures and use iterator methods
-- [ ] Understand lazy evaluation and iterator chains
+- [v] Completed `minigrep`
+- [v] Can write closures and use iterator methods
+- [v] Understand lazy evaluation and iterator chains
 
 ---
 

@@ -235,10 +235,10 @@ A structured learning plan based on [The Rust Programming Language](https://doc.
 - Write unit tests (`#[test]`) for your command parser (e.g., making sure `"SET name alice"` turns into `Command::Set("name", "alice")`) and for the hashmap operations.
 
 ### Checkpoint
-- [ ] You can write and run tests with `cargo test`
-- [ ] You completed the `minigrep` project
-- [ ] You can write closures and use them with iterator methods
-- [ ] You understand lazy evaluation and iterator chains
+- [v] You can write and run tests with `cargo test`
+- [v] You completed the `minigrep` project
+- [v] You can write closures and use them with iterator methods
+- [v] You understand lazy evaluation and iterator chains
 
 ---
 
