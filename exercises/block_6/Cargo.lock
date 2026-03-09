@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "mini-redis"
+name = "block_6"
 version = "0.1.0"
